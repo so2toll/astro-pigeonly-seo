@@ -5,6 +5,10 @@ dist/
 # dependencies
 node_modules/
 
+#db connections
+neo4j/node_modules/
+
+
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -20,3 +24,6 @@ pnpm-debug.log*
 # misc
 *.pem
 Thumbs.db
+
+# Local Netlify folder
+.netlify

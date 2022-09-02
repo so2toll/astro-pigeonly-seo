@@ -1,0 +1,11 @@
+ type Movie {
+        title: String
+        released: Int
+        tagline: String
+        genres: [Genre!]! @relationship(type: "IN_GENRE", direction: OUT)
+    }
+
+    type Genre {
+        name: String
+        movies: [Movie!]! @relationship(type: "IN_GENRE", direction: IN)
+    }
