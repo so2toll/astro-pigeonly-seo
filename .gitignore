@@ -7,7 +7,7 @@ node_modules/
 
 #db connections
 neo4j/node_modules/
-
+neo4j/.env
 
 # logs
 npm-debug.log*

@@ -4,9 +4,7 @@ import { Section } from 'astro-boilerplate-components';
 
 const Footer = () => (
   <Section>
-    <div> Foofllter Placeholder</div>
-    {/* {console.log(Hello())} */}
+    <div> Fsoofllter Placeholder</div>
   </Section>
 );
-// console.log(Hello());
 export { Footer };

@@ -1,8 +1,4 @@
 ---
-// import type { IFrontmatter } from 'astro-boilerplate-components';
-
-// import neo4j from 'neo4j-driver';
-
 import { CTA } from '@/partials/CTA';
 import { Hero } from '@/partials/Hero';
 import { ProjectList } from '@/partials/ProjectList';
@@ -10,20 +6,48 @@ import { RecentPosts } from '@/partials/RecentPosts';
 import Base from '@/templates/Base.astro';
 import { AppConfig } from '@/utils/AppConfig';
 import { sortByDate } from '@/utils/Posts';
+import { IFrontmatter } from 'astro-boilerplate-components';
 
-const allPosts = await Astro.glob('./posts/*.md');
+const allPosts = await Astro.glob<IFrontmatter>('./posts/*.md');
 const sortedPosts = sortByDate(allPosts);
 const lastThreePosts = sortedPosts.slice(0, 3);
 
 const { title } = AppConfig;
 const { description } = AppConfig;
+
+const response = await fetch("http://localhost:4000/graphql'", {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    query: `
+              query {
+                movies {
+                    title
+                    released
+                    tagline
+                  
+                }
+          }
+        `,
+  }),
+});
+
+const json = await response.json();
+const payload = json.data;
+
+console.log(payload);
 ---
+
 
 <Base head={{ title, description }}>
   <Hero />
   hey heyf
+  <h1>Fetching Weather at build time</h1>
+  <h2>{payload.movies.title}</h2>
+  <p>Weather: {payload.movies[3].title} </p>
   <ProjectList />
   tester
   <RecentPosts postList={lastThreePosts} />
   <CTA />
 </Base>
+
