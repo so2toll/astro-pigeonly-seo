@@ -6,8 +6,8 @@ dist/
 node_modules/
 
 #db connections
-neo4j/node_modules/
-neo4j/.env
+./neo4j/node_modules/
+./neo4j/.env
 
 # logs
 npm-debug.log*
@@ -17,6 +17,7 @@ pnpm-debug.log*
 
 # environment variables
 .env*.local
+.env*
 
 # macOS-specific files
 .DS_Store

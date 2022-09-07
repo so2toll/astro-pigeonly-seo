@@ -15,38 +15,39 @@ const lastThreePosts = sortedPosts.slice(0, 3);
 const { title } = AppConfig;
 const { description } = AppConfig;
 
-const response = await fetch("http://localhost:4000/graphql'", {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    query: `
-              query {
-                movies {
-                    title
-                    released
-                    tagline
+// const response = await fetch("http://localhost:4000/graphql'", {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify({
+//     query: `
+//               query {
+//                 movies {
+//                     title
+//                     released
+//                     tagline
                   
-                }
-          }
-        `,
-  }),
-});
+//                 }
+//           }
+//         `,
+//   }),
+// });
+const response = await fetch("http://localhost:8888/.netlify/functions/get_neo_db").then(response => response.json());
+// const json = await response.json();
+// const payload = json.data;
 
-const json = await response.json();
-const payload = json.data;
-
-console.log(payload);
+console.log(response);
 ---
 
 
 <Base head={{ title, description }}>
   <Hero />
   hey heyf
-  <h1>Fetching Weather at build time</h1>
-  <h2>{payload.movies.title}</h2>
-  <p>Weather: {payload.movies[3].title} </p>
+  <!-- <h1>Fdetching Weatvher at build time</h1>2 -->
+  <!-- <h2>{payload.movies.title}</h2> -->
+  <h2>{response.message}</h2>
+  <!-- <p>Weather: {payload.movies[3].title} </p> -->
   <ProjectList />
-  tester
+  <!-- tester -->
   <RecentPosts postList={lastThreePosts} />
   <CTA />
 </Base>

@@ -1,3 +1,8 @@
 [build]
   publish = "dist"
-  command = "astro build --experimental-static-build && cd ./neo4j npm start"
+  command = "astro build --experimental-static-build"
+
+
+[[edge_functions]]
+function = "get_db"
+path = "/graphqlneo"
