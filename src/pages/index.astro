@@ -43,6 +43,13 @@ const response = await fetch(
   'https://magical-pasca-72892c.netlify.app/.netlify/functions/neo4j'
 ).then((res) => res.json());
 console.log(response, 'hdey there');
+const response2 = await fetch(
+  'https://magical-pasca-72892c.netlify.app/.netlify/functions/neoserver'
+).then((res) => res.json());
+console.log(response, 'hdey there');
+console.log(response2, '2nd  response there');
+const getRespose3 = response2.message && 'hi there 3rd repsponse';
+console.log(getRespose3);
 ---
 
 <Base head={{ title, description }}>
@@ -57,5 +64,7 @@ console.log(response, 'hdey there');
   <!-- tester -->
   <RecentPosts postList={lastThreePosts} />
   {response.message}
+  {response2.message}
+  <div><h3 style="color:green">{getRespose3}</h3></div
   <CTA />
 </Base>
