@@ -10,6 +10,6 @@
   autoLaunch = true
 
 [functions]
-  directory = "netlify/functions/*"
+  directory = "/netlify/functions/*"
 
   
