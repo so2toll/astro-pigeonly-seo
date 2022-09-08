@@ -58,11 +58,11 @@ const firstTitle = await session.run(query, params)
   .catch((error) => {
     console.error(error);
   });
-  console.log(firstTitle[2], "this is now here at title response");
+  console.log(firstTitle[6], "this is now here at title response");
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: `ttereHellos, ${firstTitle[2]}!`,
+      message: `ttereHellos, ${firstTitle[6]}!`,
     }),
   }
 }
