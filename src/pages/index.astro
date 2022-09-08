@@ -1,4 +1,6 @@
 ---
+import type { IFrontmatter } from 'astro-boilerplate-components';
+
 import { CTA } from '@/partials/CTA';
 import { Hero } from '@/partials/Hero';
 import { ProjectList } from '@/partials/ProjectList';
@@ -6,8 +8,9 @@ import { RecentPosts } from '@/partials/RecentPosts';
 import Base from '@/templates/Base.astro';
 import { AppConfig } from '@/utils/AppConfig';
 import { sortByDate } from '@/utils/Posts';
-import { IFrontmatter } from 'astro-boilerplate-components';
 
+// import { testComp } from './netlify/functions/get_neo_db/get_neo_db';
+// netlify/functions/get_neo_db/get_neo_db.js
 const allPosts = await Astro.glob<IFrontmatter>('./posts/*.md');
 const sortedPosts = sortByDate(allPosts);
 const lastThreePosts = sortedPosts.slice(0, 3);
@@ -25,30 +28,29 @@ const { description } = AppConfig;
 //                     title
 //                     released
 //                     tagline
-                  
+
 //                 }
 //           }
 //         `,
 //   }),
 // });
-const response = await fetch("http://localhost:8888/.netlify/functions/get_neo_db").then(response => response.json());
+// const response = await fetch("http://localhost:8888/.netlify/functions/get_neo_db").then(response => response.json());
 // const json = await response.json();
 // const payload = json.data;
 
-console.log(response);
+// console.log(response);
 ---
-
 
 <Base head={{ title, description }}>
   <Hero />
-  hey heyf
+  hejy heyff
+  <!-- {testComp()} -->
   <!-- <h1>Fdetching Weatvher at build time</h1>2 -->
   <!-- <h2>{payload.movies.title}</h2> -->
-  <h2>{response.message}</h2>
+  <!-- <h2>{response.message}</h2> -->
   <!-- <p>Weather: {payload.movies[3].title} </p> -->
   <ProjectList />
   <!-- tester -->
   <RecentPosts postList={lastThreePosts} />
   <CTA />
 </Base>
-

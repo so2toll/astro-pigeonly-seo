@@ -39,13 +39,16 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*", "./netlify/functions/*"]
     }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.astro",
-    "src/queries.tsx"
+    "src/queries.tsx",
+    "netlify/functions/*.ts",
+    "netlify/functions/*.tsx",
+    "netlify/functions/*.astro"
   ]
 }

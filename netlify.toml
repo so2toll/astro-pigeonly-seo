@@ -2,7 +2,14 @@
   publish = "dist"
   command = "astro build --experimental-static-build"
 
+[dev]
+  command = "npm run dev"
+  framework = "#custom"
+  port = 8888
+  targetPort = 3000
+  autoLaunch = true
 
-[[edge_functions]]
-function = "get_db"
-path = "/graphqlneo"
+[functions]
+  directory = "netlify/functions/*"
+
+  
