@@ -38,7 +38,11 @@ const { description } = AppConfig;
 // const json = await response.json();
 // const payload = json.data;
 
-// console.log(response);
+// console.log(fetch ("http://localhost:8888/.netlify/functions/neo4j");
+const response = await fetch(
+  'http://localhost:8888/.netlify/functions/neo4j'
+).then((res) => res.json());
+console.log(response, 'hdey there');
 ---
 
 <Base head={{ title, description }}>
@@ -52,5 +56,6 @@ const { description } = AppConfig;
   <ProjectList />
   <!-- tester -->
   <RecentPosts postList={lastThreePosts} />
+  {response.message}
   <CTA />
 </Base>
